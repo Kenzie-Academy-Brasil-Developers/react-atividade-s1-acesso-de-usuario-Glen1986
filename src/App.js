@@ -3,37 +3,27 @@ import { useState } from 'react';
 import RestrictedPage from './components/RestrictedPage'
 
 function App() {
-  const user = "name"
-  const [isLoggedIn, setIsLoggedIn] = useState( ["disconnected", "connected"]);
-
-  const state = () =>{
-    return isLoggedIn[0]
-/*      let text = ""
-      if(isLoggedIn === "false"){
-        text = "disconnected"
-      }else if( isLoggedIn === "true"){
-        text = "connected"
-      }  
-      return text
-      */
-  };
+  const user = "yo mismo"
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const botin =()=>{
-    console.log("login")
+    setIsLoggedIn(
+    !isLoggedIn 
+    )
   }
-  const botout =()=>{
+    const botout =()=>{
     console.log("logout")
+    setIsLoggedIn(
+     !isLoggedIn 
+    )
   }
-
-
   return (
     <div className="App">
       <div className="App-header">
         <RestrictedPage
           user = {user}
-          isLoggedIn = {state}
+          isLoggedIn = {isLoggedIn}
           Login = {botin}
           Logout = {botout}
-
         />
       </div>
     </div>
